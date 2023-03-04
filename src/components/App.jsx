@@ -1,16 +1,14 @@
+import { Home } from 'page/Home';
+import { Contacts } from 'page/Contacts';
+import { Login } from 'page/Login';
+import { Register } from 'page/Register';
+import { Route, Routes } from 'react-router-dom';
+
 export const App = () => {
-  return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      React homework template. Hello world!
-    </div>
-  );
+  <Routes path="/" element={Home}>
+    <Route to="/" />
+    <Route />
+    <Route />
+  </Routes>;
+  return <div>React homework template. Hello world!</div>;
 };
