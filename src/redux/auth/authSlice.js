@@ -12,7 +12,9 @@ const authSlice = createSlice({
   name: 'auth',
   initialState,
   extraReducers: builder => {
-    return builder.addCase();
+    return builder.addCase(register.fulfilled, (state, action) => {
+      state.token = action.payload.token;
+    });
   },
 });
 
