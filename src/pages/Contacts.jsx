@@ -4,10 +4,10 @@ import { Filter } from '../components/Filter/Filter';
 import { Title } from '../components/Title/Title';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchContacts } from 'redux/operation';
-import { getIsLoading, getError } from 'redux/selectors';
+import { fetchContacts } from '../redux/cotactForm/operation';
+import { getIsLoading, getError } from '../redux/cotactForm/selectors';
 
-export const Contacts = () => {
+const Contacts = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
@@ -27,3 +27,4 @@ export const Contacts = () => {
     </div>
   );
 };
+export default Contacts;

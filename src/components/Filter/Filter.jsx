@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilterValue } from 'redux/filterSlice';
-import { getFilterValue } from 'redux/selectors';
+import { setFilterValue } from '../../redux/cotactForm/filterSlice';
+import { getFilterValue } from '../../redux/cotactForm/selectors';
 import { FilterLabel, FilterInput } from './Filter.styled';
 
 export const Filter = () => {

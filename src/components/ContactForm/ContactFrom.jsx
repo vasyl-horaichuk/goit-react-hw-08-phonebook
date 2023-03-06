@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Form, FormLabel, FormInput, FormButton } from './ContactForm.styled';
 import { useDispatch } from 'react-redux';
-import { addContact } from 'redux/operation';
+import { addContact } from '../../redux/cotactForm/operation';
 import { nanoid } from 'nanoid';
 
 export const ContactForm = () => {
