@@ -7,7 +7,14 @@ export const Navigation = () => {
   return (
     <nav>
       <Link to="/">Home</Link>
-      {isLoggedIn && <Link to="/tasks">Tasks</Link>}
+      {isLoggedIn ? (
+        <Link to="/contacts">Tasks</Link>
+      ) : (
+        <>
+          <Link to="/login">login</Link>
+          <Link to="/register">register</Link>
+        </>
+      )}
     </nav>
   );
 };
