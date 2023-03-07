@@ -25,7 +25,7 @@ const authSlice = createSlice({
       state.isLoggedIn = false;
     });
     builder.addCase(refreshUser.fulfilled, (state, action) => {
-      state.token = action.payload.token;
+      // state.token = action.payload.token;
       state.isLoggedIn = true;
     });
   },
