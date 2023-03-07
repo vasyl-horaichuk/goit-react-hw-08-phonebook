@@ -1,7 +1,6 @@
 import { useReducer } from 'react';
 import { useDispatch } from 'react-redux';
-import { logIn } from 'redux/auth/authOperations';
-
+import { register } from 'redux/auth/authOperations';
 function reducer(state, action) {
   switch (action.type) {
     case 'name':
@@ -24,12 +23,14 @@ function reducer(state, action) {
   }
 }
 
-export const LoginForm = () => {
+export const RegisterForm = () => {
   const [state, setState] = useReducer(reducer, {
     name: '',
     email: '',
     password: '',
   });
+
+  const dispatch = useDispatch();
 
   const handleChangeInput = e => {
     setState({ type: e.target.name, payload: e.target.value });
@@ -37,7 +38,7 @@ export const LoginForm = () => {
   };
   const handleSubmit = e => {
     e.preventDefault();
-    dispatch(logIn(state));
+    dispatch(register(state));
   };
 
   return (
