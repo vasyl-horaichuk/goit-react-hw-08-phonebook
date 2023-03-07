@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { editContact } from 'redux/cotactForm/operation';
+
 export const ContactItem = ({
   contact: { id, name: nameValue, number: numberValue },
   onDelete,
@@ -11,12 +12,12 @@ export const ContactItem = ({
   const [name, setName] = useState(nameValue);
   const [number, setNumber] = useState(numberValue);
 
-  const dispatch = useDispatch(editContact({ id, name, number }));
+  const dispatch = useDispatch();
 
   const handleChangeMode = () => {
     if (isEdid) {
       setIsEdit(prev => !prev);
-      dispatch();
+      dispatch(editContact({ id, name, number }));
       return;
     }
     setIsEdit(prev => !prev);

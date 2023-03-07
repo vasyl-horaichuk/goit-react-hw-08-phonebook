@@ -37,7 +37,10 @@ const contactsSlice = createSlice({
         state.items.push(action.payload);
       })
       .addCase(editContact.fulfilled, (state, action) => {
-        state.items = action.payload;
+        const index = state.items.find(
+          contact => contact.id === action.payload
+        );
+        state.items.splice(index, 1, action.payload);
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         const index = state.items.find(
