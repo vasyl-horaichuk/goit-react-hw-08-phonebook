@@ -5,7 +5,7 @@ function reducer(state, action) {
     case 'name':
       return {
         ...state,
-        name: action.payload,
+        email: action.payload,
       };
     case 'password':
       return {
