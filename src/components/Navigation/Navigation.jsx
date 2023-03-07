@@ -9,7 +9,7 @@ export const Navigation = () => {
     <nav>
       <Link to="/">Home</Link>
       {isLoggedIn ? (
-        <Link to="/contacts">Tasks</Link>
+        <Link to="/contacts">Contacts</Link>
       ) : (
         <>
           <Link to="/login">login</Link>
