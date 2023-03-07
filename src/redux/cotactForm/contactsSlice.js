@@ -7,7 +7,7 @@ import {
 } from './operation';
 import useContacts from '../../components/user.contacts.json';
 const contactsInitState = [...useContacts];
-const extraActions = [fetchContacts, addContact, deleteContact];
+const extraActions = [fetchContacts, addContact, deleteContact, editContact];
 const getActions = type => extraActions.map(action => action[type]);
 const handlePending = state => {
   state.isLoading = true;
@@ -31,6 +31,12 @@ const contactsSlice = createSlice({
   extraReducers: builder => {
     return builder
       .addCase(fetchContacts.fulfilled, (state, action) => {
+        state.items = action.payload;
+      })
+      .addCase(addContact.fulfilled, (state, action) => {
+        state.items.push(action.payload);
+      })
+      .addCase(editContact.fulfilled, (state, action) => {
         state.items = action.payload;
       })
       .addCase(deleteContact.fulfilled, (state, action) => {

@@ -2,7 +2,7 @@ import { ContactItemButton } from './ContactItem.styled';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-
+import { editContact } from 'redux/cotactForm/operation';
 export const ContactItem = ({
   contact: { id, name: nameValue, number: numberValue },
   onDelete,
@@ -11,11 +11,12 @@ export const ContactItem = ({
   const [name, setName] = useState(nameValue);
   const [number, setNumber] = useState(numberValue);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(editContact({ id, name, number }));
 
   const handleChangeMode = () => {
     if (isEdid) {
       setIsEdit(prev => !prev);
+      dispatch();
       return;
     }
     setIsEdit(prev => !prev);
