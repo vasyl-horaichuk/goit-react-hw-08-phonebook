@@ -1,5 +1,5 @@
-const Login = () => {
+const LoginPage = () => {
   return <h1>PAGE LOGIN</h1>;
 };
 
-export default Login;
+export default LoginPage;

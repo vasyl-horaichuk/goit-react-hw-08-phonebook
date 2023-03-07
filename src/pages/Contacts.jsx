@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from '../redux/cotactForm/operation';
 import { getIsLoading, getError } from '../redux/cotactForm/selectors';
 
-const Contacts = () => {
+const ContactsPage = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
   const error = useSelector(getError);
@@ -27,4 +27,4 @@ const Contacts = () => {
     </div>
   );
 };
-export default Contacts;
+export default ContactsPage;
