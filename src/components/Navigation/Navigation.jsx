@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { useAuth } from 'hooks';
+import { Suspense } from 'react';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
@@ -15,6 +16,9 @@ export const Navigation = () => {
           <Link to="/register">register</Link>
         </>
       )}
+      <Suspense>
+        <Outlet />
+      </Suspense>
     </nav>
   );
 };
