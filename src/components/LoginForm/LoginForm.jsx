@@ -34,6 +34,7 @@ export const LoginForm = () => {
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(logIn(state));
+    e.currentTarget.reset();
   };
 
   return (
