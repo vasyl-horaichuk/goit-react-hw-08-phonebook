@@ -14,21 +14,21 @@ import { contactsReducer } from './cotactForm/contactsSlice';
 import { filterReducer } from './cotactForm/filterSlice';
 import { authReducer } from './auth/authSlice';
 
-const persistConfig = {
-  key: 'root',
+const authPersistConfig = {
+  key: 'auth',
   storage,
-  whitelist: ['contacts'],
+  whitelist: ['token'],
 };
 const rootReducer = combineReducers({
+  auth: persistedReducer,
   contacts: contactsReducer,
-  auth: authReducer,
   filter: filterReducer,
 });
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(authPersistConfig, authReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: rootReducer,
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
