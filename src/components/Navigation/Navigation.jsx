@@ -1,6 +1,24 @@
-import { Link, Outlet } from 'react-router-dom';
+// import { Link, Outlet } from 'react-router-dom';
+// import { useAuth } from 'hooks';
+// import { Suspense } from 'react';
+
+// export const Navigation = () => {
+//   const { isLoggedIn } = useAuth();
+
+//   return (
+//     <nav>
+//       <Link to="/">Home</Link>
+//       {isLoggedIn ?
+//         <Link to="/contacts">Contacts</Link>}
+//       <Suspense>
+//         <Outlet />
+//       </Suspense>
+//     </nav>
+//   );
+// };
+
+import { Link } from 'react-router-dom';
 import { useAuth } from 'hooks';
-import { Suspense } from 'react';
 
 export const Navigation = () => {
   const { isLoggedIn } = useAuth();
@@ -8,17 +26,7 @@ export const Navigation = () => {
   return (
     <nav>
       <Link to="/">Home</Link>
-      {isLoggedIn ? (
-        <Link to="/contacts">Contacts</Link>
-      ) : (
-        <>
-          <Link to="/login">login</Link>
-          <Link to="/register">register</Link>
-        </>
-      )}
-      <Suspense>
-        <Outlet />
-      </Suspense>
+      {isLoggedIn && <Link to="/contacts">Contacts</Link>}
     </nav>
   );
 };
