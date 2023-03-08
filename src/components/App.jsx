@@ -1,7 +1,7 @@
 import { useEffect, lazy, Suspense } from 'react';
 import { useDispatch } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-import { Navigation } from '../components/Navigation/Navigation';
+import { Layout } from './Layout';
 import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { refreshUser } from '../redux/auth/authOperations';
@@ -25,7 +25,7 @@ export const App = () => {
   ) : (
     <Suspense fallback={<h1>Is Loding</h1>}>
       <Routes>
-        <Route path="/" element={<Navigation />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
           <Route
             path="/register"
