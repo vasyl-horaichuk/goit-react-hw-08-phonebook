@@ -7,11 +7,25 @@ export const UserMenu = () => {
   const { user } = useAuth();
 
   return (
-    <div>
-      <p>Welcom, {user.name}</p>
+    <div
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        gap: 12,
+      }}
+    >
+      <p style={{ fontWeight: 700 }}>Welcom, {user.name}</p>
       <button type="button" onClick={() => dispatch(logOut())}>
         Logout
       </button>
     </div>
   );
 };
+
+// .wrapper {
+
+// }
+
+// .username {
+//
+// }
