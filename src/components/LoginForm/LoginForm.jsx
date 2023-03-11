@@ -1,6 +1,12 @@
 import { useReducer } from 'react';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/authOperations';
+import {
+  Form,
+  FormLabel,
+  FormInput,
+  FormButton,
+} from '../FormStyle/ContactForm.styled';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -29,24 +35,28 @@ export const LoginForm = () => {
 
   const handleChangeInput = e => {
     setState({ type: e.target.name, payload: e.target.value });
-    console.log(state);
   };
+
   const handleSubmit = e => {
     e.preventDefault();
     dispatch(logIn(state));
   };
 
   return (
-    <form action="" onSubmit={handleSubmit}>
-      <label htmlFor="">
+    <Form action="" onSubmit={handleSubmit}>
+      <FormLabel htmlFor="email">
         email
-        <input onChange={handleChangeInput} name="name" type="email" />
-      </label>
-      <label htmlFor="">
+        <FormInput onChange={handleChangeInput} name="name" type="email" />
+      </FormLabel>
+      <FormLabel htmlFor="password">
         password
-        <input onChange={handleChangeInput} name="password" type="password" />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+        <FormInput
+          onChange={handleChangeInput}
+          name="password"
+          type="password"
+        />
+      </FormLabel>
+      <FormButton type="submit">Log In</FormButton>
+    </Form>
   );
 };

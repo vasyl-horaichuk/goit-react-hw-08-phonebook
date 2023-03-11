@@ -1,6 +1,12 @@
 import { useReducer } from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/authOperations';
+import {
+  Form,
+  FormLabel,
+  FormInput,
+  FormButton,
+} from '../FormStyle/ContactForm.styled';
 function reducer(state, action) {
   switch (action.type) {
     case 'name':
@@ -42,20 +48,24 @@ export const RegisterForm = () => {
   };
 
   return (
-    <form action="" onSubmit={handleSubmit}>
-      <label htmlFor="">
+    <Form autoComplete="off" action="" onSubmit={handleSubmit}>
+      <FormLabel htmlFor="name">
         Name
-        <input onChange={handleChangeInput} name="name" type="text" />
-      </label>
-      <label htmlFor="">
+        <FormInput onChange={handleChangeInput} name="name" type="text" />
+      </FormLabel>
+      <FormLabel htmlFor="email">
         email
-        <input onChange={handleChangeInput} name="email" type="email" />
-      </label>
-      <label htmlFor="">
+        <FormInput onChange={handleChangeInput} name="email" type="email" />
+      </FormLabel>
+      <FormLabel htmlFor="password">
         password
-        <input onChange={handleChangeInput} name="password" type="password" />
-      </label>
-      <button type="submit">Submit</button>
-    </form>
+        <FormInput
+          onChange={handleChangeInput}
+          name="password"
+          type="password"
+        />
+      </FormLabel>
+      <FormButton type="submit">Register</FormButton>
+    </Form>
   );
 };
