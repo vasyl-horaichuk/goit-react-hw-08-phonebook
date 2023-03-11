@@ -7,7 +7,7 @@ export const ContactItemButton = styled.button`
   font-size: 14px;
   border-radius: 5px;
   border-style: hidden;
-  background-color: red;
+  background-color: black;
   color: #ffffff;
   cursor: pointer;
 
