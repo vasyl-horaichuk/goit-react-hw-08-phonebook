@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
 import { editContact } from 'redux/cotactForm/operation';
+import { FormInput } from '../FormStyle/ContactForm.styled';
 
 export const ContactItem = ({
   contact: { id, name: nameValue, number: numberValue },
@@ -38,12 +39,19 @@ export const ContactItem = ({
   return (
     <>
       {isEdid ? (
-        <input name="name" onChange={handleChange} type="text" value={name} />
+        <FormInput
+          style={{ marginRight: 10 }}
+          name="name"
+          onChange={handleChange}
+          type="text"
+          value={name}
+        />
       ) : (
         <p>{name}: </p>
       )}
       {isEdid ? (
-        <input
+        <FormInput
+          style={{ marginRight: 20 }}
           name="number"
           onChange={handleChange}
           type="tel"
@@ -52,15 +60,19 @@ export const ContactItem = ({
       ) : (
         <p>{number}</p>
       )}
-      {/* <p>
-        {name} : {number}
-      </p> */}
-      <ContactItemButton type="button" onClick={() => onDelete(id)}>
-        Delete
-      </ContactItemButton>
-      <button type="button" onClick={handleChangeMode}>
-        {isEdid ? 'Save' : 'Edid'}
-      </button>
+      <div
+        style={{
+          display: 'flex',
+          gap: 10,
+        }}
+      >
+        <ContactItemButton type="button" onClick={() => onDelete(id)}>
+          Delete
+        </ContactItemButton>
+        <ContactItemButton type="button" onClick={handleChangeMode}>
+          {isEdid ? 'Save' : 'Edid'}
+        </ContactItemButton>
+      </div>
     </>
   );
 };
