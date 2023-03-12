@@ -1,11 +1,11 @@
-import { RegisterForm } from 'components/RegisterFrom/RegisterForm';
 import {Helmet} from 'react-helmet';
+import { RegisterForm } from 'components/RegisterFrom/RegisterForm';
 
 const RegisterPage = () => {
   return (
     <div>
       <Helmet>
-        <title>Login</title>
+        <title>Register</title>
       </Helmet>
       <h1>PAGE REGISTER</h1>
       <RegisterForm />
