@@ -6,6 +6,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchContacts } from '../redux/cotactForm/operation';
 import { getIsLoading, getError } from '../redux/cotactForm/selectors';
+import {Helmet} from 'react-helmet';
 
 const ContactsPage = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,9 @@ const ContactsPage = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Contacts</title>
+      </Helmet>
       <Title title="Phonebook" />
       <ContactForm />
       <Title title="Contacts" />
